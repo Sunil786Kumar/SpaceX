@@ -11,7 +11,13 @@ import UIKit
 class LaunchDetailsViewController: UIViewController {
 
   @IBOutlet weak var missionNameLabel: UILabel!
-  @IBOutlet weak var wikipediaLabel: UILabel!
+  @IBOutlet weak var wikipediaLabel: UILabel! {
+    didSet {
+      let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+      wikipediaLabel.addGestureRecognizer(tap)
+      wikipediaLabel.isUserInteractionEnabled = true
+    }
+  }
 
   var viewModel: LaunchDetailsViewModel!
   override func viewDidLoad() {
@@ -24,4 +30,14 @@ class LaunchDetailsViewController: UIViewController {
     wikipediaLabel.text = viewModel.wikipediaURL
   }
 
+  @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+    guard let url = URL(string: viewModel.wikipediaURL) else {
+      return
+    }
+    if #available(iOS 10.0, *) {
+      UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    } else {
+      UIApplication.shared.openURL(url)
+    }
+  }
 }
