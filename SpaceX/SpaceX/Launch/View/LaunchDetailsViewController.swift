@@ -26,6 +26,7 @@ class LaunchDetailsViewController: UIViewController {
   }
 
   func configureView() {
+    title = viewModel.title
     missionNameLabel.text = viewModel.missionName
     wikipediaLabel.text = viewModel.wikipediaURL
   }

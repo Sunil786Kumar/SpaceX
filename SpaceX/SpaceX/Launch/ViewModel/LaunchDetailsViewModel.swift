@@ -17,6 +17,10 @@ class LaunchDetailsViewModel {
     self.launch = launch
   }
 
+  var title: String {
+    return "Details"
+  }
+  
   var missionName: String {
     return launch.missionName
   }

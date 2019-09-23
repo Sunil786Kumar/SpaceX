@@ -15,6 +15,7 @@ class LaunchViewController: UIViewController {
       tableView.dataSource = self
     }
   }
+  @IBOutlet weak var spinner: UIActivityIndicatorView!
   var viewModel: LaunchViewModel!
   let service = LaunchService()
 
@@ -23,10 +24,12 @@ class LaunchViewController: UIViewController {
     viewModel = LaunchViewModel(withService: service, presenter: self)
     configureCell()
     configureNavigationBar()
+    title = viewModel.title
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    showSpinner()
     viewModel.launchDetails()
   }
 
@@ -49,6 +52,14 @@ class LaunchViewController: UIViewController {
   func configureCell() {
     tableView.register(UINib(nibName: viewModel.cellName, bundle: nil),
                        forCellReuseIdentifier: viewModel.cellName)
+  }
+
+  func showSpinner() {
+    spinner.startAnimating()
+  }
+
+  func hideSpinner() {
+    spinner.stopAnimating()
   }
 
   @objc func sortTapped(sender: UIBarButtonItem) {
@@ -77,6 +88,7 @@ class LaunchViewController: UIViewController {
 
 extension LaunchViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    showSpinner()
     viewModel.didSelectLaunch(atIndex: indexPath.row)
   }
 }
@@ -98,11 +110,13 @@ extension LaunchViewController: UITableViewDataSource {
 
 extension LaunchViewController: LaunchPresenterProtocol {
   func displayDetails() {
+    hideSpinner()
     performSegue(withIdentifier: viewModel.detailsSegue, sender: self)
   }
 
   func reloadData() {
     DispatchQueue.main.async {
+      self.hideSpinner()
       self.tableView.reloadData()
     }
   }

@@ -22,18 +22,24 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="RuM-Jv-Wbh">
+                                <rect key="frame" x="197" y="390" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FaY-xL-cd6" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="2Er-eM-dbo"/>
                             <constraint firstItem="FaY-xL-cd6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="5vh-fI-klg"/>
+                            <constraint firstItem="RuM-Jv-Wbh" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="7P8-Yc-WKs"/>
                             <constraint firstItem="FaY-xL-cd6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dVn-Ua-ITj"/>
+                            <constraint firstItem="RuM-Jv-Wbh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="iKc-2w-qUl"/>
                             <constraint firstItem="FaY-xL-cd6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="j3x-cI-mPT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="NmW-C3-AtW"/>
                     <connections>
+                        <outlet property="spinner" destination="RuM-Jv-Wbh" id="scO-cH-O24"/>
                         <outlet property="tableView" destination="FaY-xL-cd6" id="5NH-Lx-oYl"/>
                         <segue destination="x3Q-X4-3xy" kind="show" identifier="showDetails" id="9mA-Ob-uZK"/>
                     </connections>

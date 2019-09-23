@@ -44,6 +44,10 @@ class LaunchViewModel {
     return "showDetails"
   }
 
+  var title: String {
+    return "Launches"
+  }
+
   //TODO:
   // other strings can come here
 
