@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum SortType {
+  case year
+  case mission
+  case success
+}
 protocol LaunchPresenterProtocol {
   func reloadData()
 }
@@ -47,5 +52,16 @@ extension LaunchViewModel {
       return nil
     }
     return launches[index]
+  }
+
+  func sortLaunches(byType type: SortType) {
+    switch type {
+    case .mission:
+      print("mission")
+    case .year:
+      print("year")
+    case .success:
+      print("success")
+    }
   }
 }
