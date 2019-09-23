@@ -20,7 +20,7 @@ protocol LaunchPresenterProtocol {
 
 class LaunchViewModel {
   let service: LaunchServiceProtocol
-  let presenter : LaunchPresenterProtocol
+  let presenter : LaunchPresenterProtocol?
   var rocket: RocketDetails?
   var launch: Launch?
 
@@ -28,7 +28,7 @@ class LaunchViewModel {
 
   var allLaunches : [Launch]? {
     didSet {
-      presenter.reloadData()
+      presenter?.reloadData()
     }
   }
 
@@ -51,7 +51,7 @@ class LaunchViewModel {
   //TODO:
   // other strings can come here
 
-  init(withService service: LaunchServiceProtocol, presenter: LaunchPresenterProtocol) {
+  init(withService service: LaunchServiceProtocol, presenter: LaunchPresenterProtocol?) {
     self.service = service
     self.presenter = presenter
   }
@@ -73,7 +73,7 @@ class LaunchViewModel {
     launchDetails(for: launch)
     rocketDetails(withId: launch.rocket.id)
     dispatchGroup.notify(queue: .main) {
-      self.presenter.displayDetails()
+      self.presenter?.displayDetails()
     }
   }
 
