@@ -9,5 +9,8 @@
 import Foundation
 
 protocol LaunchServiceProtocol {
+
+  func fetchAllLaunches()
   
+
 }

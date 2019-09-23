@@ -19,5 +19,10 @@ class LaunchViewModel {
   init(withService service: LaunchServiceProtocol, presenter: LaunchPresenterProtocol) {
     self.service = service
     self.presenter = presenter
+    launchDetails()
+  }
+
+  func launchDetails() {
+    service.fetchAllLaunches()
   }
 }
