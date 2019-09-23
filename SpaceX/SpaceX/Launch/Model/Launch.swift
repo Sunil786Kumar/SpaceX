@@ -7,30 +7,31 @@
 //
 
 import Foundation
-/*
- "flight_number": 1,
- "mission_name": "FalconSat"
- "launch_year": "2006"
- "launch_date_utc": "2006-03-24T22:30:00.000Z"
- "rocket": {
- "rocket_id": "falcon1",
- "launch_success": false,
 
- */
-struct Rocket {
-  var rocketId: String
-
+struct Rocket: Codable {
+  var id: String
+  var name: String
+  
+  private enum CodingKeys: String, CodingKey {
+    case id = "rocket_id"
+    case name = "rocket_name"
+  }
 }
-struct Launch {
+struct Launch: Codable {
   var flightNumber: Int
   var missionName: String
-//  var year: String
-//  var date: Date
-//  var rocket: Rocket
-//  var success: Bool
+  var year: String
+  var date: String
+  var rocket: Rocket
+  var success: Bool?
 
-  init(_ dictionary: [String: Any]) {
-    self.flightNumber = dictionary["flight_number"] as? Int ?? 0
-    self.missionName = dictionary["mission_name"] as? String ?? ""
+  //Custom Keys
+  private enum CodingKeys: String, CodingKey {
+    case flightNumber = "flight_number"
+    case missionName = "mission_name"
+    case year = "launch_year"
+    case date = "launch_date_utc"
+    case rocket = "rocket"
+    case success = "launch_success"
   }
 }
