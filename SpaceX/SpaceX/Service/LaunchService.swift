@@ -14,6 +14,9 @@ enum RequestType {
   case rocketDetail
 }
 
+//TODO:
+// redudant code can be removed from each method
+
 class LaunchService: LaunchServiceProtocol {
   func fetchAllLaunches(completion: @escaping ([Launch]?) -> ()) {
     let url = URL(string: "https://api.spacexdata.com/v3/launches")!
