@@ -11,4 +11,6 @@ import Foundation
 protocol LaunchServiceProtocol {
 
   func fetchAllLaunches(completion: @escaping ([Launch]?) -> ())
+  func launchDetails(withId id: Int, completion: @escaping (Launch?) -> ())
+  func rocketDetails(withId id: String, completion: @escaping (RocketDetails?) -> ())
 }

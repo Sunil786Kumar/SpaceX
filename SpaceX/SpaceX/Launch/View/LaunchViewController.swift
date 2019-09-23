@@ -13,7 +13,6 @@ class LaunchViewController: UIViewController {
     didSet {
       tableView.delegate = self
       tableView.dataSource = self
-      tableView.register(UINib(nibName: "LaunchTableViewCell", bundle: nil), forCellReuseIdentifier: "LaunchTableViewCell")
     }
   }
   var viewModel: LaunchViewModel!
@@ -22,16 +21,63 @@ class LaunchViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     viewModel = LaunchViewModel(withService: service, presenter: self)
+    configureCell()
+    configureNavigationBar()
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     viewModel.launchDetails()
   }
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    guard segue.identifier == viewModel.detailsSegue,
+      let vc = segue.destination as? LaunchDetailsViewController else {
+        return
+      print("button pressed")
+    }
+  }
+
+  func configureNavigationBar() {
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: viewModel.barButtonTitle,
+                                                        style: .plain,
+                                                        target: self,
+                                                        action: #selector(sortTapped))
+  }
+
+  func configureCell() {
+    tableView.register(UINib(nibName: viewModel.cellName, bundle: nil),
+                       forCellReuseIdentifier: viewModel.cellName)
+  }
+
+  @objc func sortTapped(sender: UIBarButtonItem) {
+    showSortingOptions()
+  }
+
+
+  func showSortingOptions() {
+    let alert = UIAlertController(title: nil, message: "Sort by", preferredStyle: .actionSheet)
+    alert.addAction(UIAlertAction(title: "Year", style: .default, handler: { [weak self] (_) in
+      self?.viewModel.sortLaunches(byType: .year)
+    }))
+    alert.addAction(UIAlertAction(title: "Mission Name", style: .default, handler: { [weak self] (_) in
+      self?.viewModel.sortLaunches(byType: .mission)
+    }))
+    alert.addAction(UIAlertAction(title: "Mission Success", style: .default, handler: { [weak self] (_) in
+      self?.viewModel.sortLaunches(byType: .success)
+    }))
+    alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: { (_) in
+    }))
+    self.present(alert, animated: true, completion: {
+      print("completion block")
+    })
+  }
 }
 
 extension LaunchViewController: UITableViewDelegate {
-
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    viewModel.didSelectLaunch(atIndex: indexPath.row)
+  }
 }
 
 extension LaunchViewController: UITableViewDataSource {
@@ -50,6 +96,10 @@ extension LaunchViewController: UITableViewDataSource {
 }
 
 extension LaunchViewController: LaunchPresenterProtocol {
+  func navigate(withDetails rocket: RocketDetails?, launch: Launch?) {
+    performSegue(withIdentifier: viewModel.detailsSegue, sender: self)
+  }
+
   func reloadData() {
     DispatchQueue.main.async {
       self.tableView.reloadData()
