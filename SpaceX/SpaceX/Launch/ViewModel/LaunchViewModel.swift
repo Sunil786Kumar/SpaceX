@@ -25,7 +25,6 @@ class LaunchViewModel {
   init(withService service: LaunchServiceProtocol, presenter: LaunchPresenterProtocol) {
     self.service = service
     self.presenter = presenter
-    launchDetails()
   }
 
   func launchDetails() {
@@ -35,5 +34,18 @@ class LaunchViewModel {
       }
       self.allLaunches = launches
     }
+  }
+}
+
+extension LaunchViewModel {
+  func numberOfRows() -> Int {
+    return allLaunches?.count ?? 0
+  }
+
+  func modelForRowAtIndex(index: Int) -> Launch? {
+    guard let launches = allLaunches, index < launches.count  else {
+      return nil
+    }
+    return launches[index]
   }
 }
