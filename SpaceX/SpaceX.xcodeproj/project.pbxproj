@@ -3,16 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4482340A23386A34004C92B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4482340923386A34004C92B6 /* AppDelegate.swift */; };
-		4482340C23386A34004C92B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4482340B23386A34004C92B6 /* ViewController.swift */; };
+		4482340C23386A34004C92B6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4482340B23386A34004C92B6 /* LaunchViewController.swift */; };
 		4482340F23386A34004C92B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4482340D23386A34004C92B6 /* Main.storyboard */; };
 		4482341123386A36004C92B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4482341023386A36004C92B6 /* Assets.xcassets */; };
 		4482341423386A36004C92B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4482341223386A36004C92B6 /* LaunchScreen.storyboard */; };
 		4482341F23386A36004C92B6 /* SpaceXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4482341E23386A36004C92B6 /* SpaceXTests.swift */; };
+		4482342B23386D36004C92B6 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4482342A23386D36004C92B6 /* LaunchViewModel.swift */; };
+		4482342E23386D87004C92B6 /* LaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4482342D23386D87004C92B6 /* LaunchService.swift */; };
+		4482343023386E26004C92B6 /* LaunchServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4482342F23386E26004C92B6 /* LaunchServiceProtocol.swift */; };
 		5D75AB932335E35DF91B7723 /* Pods_SpaceXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F83DDB82D0C8D1FB8ECF304 /* Pods_SpaceXTests.framework */; };
 		646C214BD9903DD030BABF52 /* Pods_SpaceX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7797057B0C8E7B3D9DCCC3A0 /* Pods_SpaceX.framework */; };
 /* End PBXBuildFile section */
@@ -32,7 +35,7 @@
 		359C308E635E1C23A31AF5CF /* Pods-SpaceX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceX.release.xcconfig"; path = "Target Support Files/Pods-SpaceX/Pods-SpaceX.release.xcconfig"; sourceTree = "<group>"; };
 		4482340623386A34004C92B6 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4482340923386A34004C92B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4482340B23386A34004C92B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4482340B23386A34004C92B6 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		4482340E23386A34004C92B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4482341023386A36004C92B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4482341323386A36004C92B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -40,6 +43,9 @@
 		4482341A23386A36004C92B6 /* SpaceXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4482341E23386A36004C92B6 /* SpaceXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXTests.swift; sourceTree = "<group>"; };
 		4482342023386A36004C92B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4482342A23386D36004C92B6 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
+		4482342D23386D87004C92B6 /* LaunchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchService.swift; sourceTree = "<group>"; };
+		4482342F23386E26004C92B6 /* LaunchServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchServiceProtocol.swift; sourceTree = "<group>"; };
 		4FA1FEDE54A90DD96CEDCD5C /* Pods-SpaceXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXTests.debug.xcconfig"; path = "Target Support Files/Pods-SpaceXTests/Pods-SpaceXTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7797057B0C8E7B3D9DCCC3A0 /* Pods_SpaceX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F83DDB82D0C8D1FB8ECF304 /* Pods_SpaceXTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceXTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,8 +104,9 @@
 		4482340823386A34004C92B6 /* SpaceX */ = {
 			isa = PBXGroup;
 			children = (
+				4482342C23386D5C004C92B6 /* Service */,
+				4482342923386CEA004C92B6 /* Launch */,
 				4482340923386A34004C92B6 /* AppDelegate.swift */,
-				4482340B23386A34004C92B6 /* ViewController.swift */,
 				4482340D23386A34004C92B6 /* Main.storyboard */,
 				4482341023386A36004C92B6 /* Assets.xcassets */,
 				4482341223386A36004C92B6 /* LaunchScreen.storyboard */,
@@ -117,6 +124,24 @@
 			path = SpaceXTests;
 			sourceTree = "<group>";
 		};
+		4482342923386CEA004C92B6 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				4482340B23386A34004C92B6 /* LaunchViewController.swift */,
+				4482342A23386D36004C92B6 /* LaunchViewModel.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		4482342C23386D5C004C92B6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4482342D23386D87004C92B6 /* LaunchService.swift */,
+				4482342F23386E26004C92B6 /* LaunchServiceProtocol.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		4832E6477149910157D73F1B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,7 +150,6 @@
 				4FA1FEDE54A90DD96CEDCD5C /* Pods-SpaceXTests.debug.xcconfig */,
 				0FA94C094F283C2BF74DA31F /* Pods-SpaceXTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -297,8 +321,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4482340C23386A34004C92B6 /* ViewController.swift in Sources */,
+				4482340C23386A34004C92B6 /* LaunchViewController.swift in Sources */,
 				4482340A23386A34004C92B6 /* AppDelegate.swift in Sources */,
+				4482342E23386D87004C92B6 /* LaunchService.swift in Sources */,
+				4482343023386E26004C92B6 /* LaunchServiceProtocol.swift in Sources */,
+				4482342B23386D36004C92B6 /* LaunchViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

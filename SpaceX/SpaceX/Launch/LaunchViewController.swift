@@ -8,11 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LaunchViewController: UIViewController {
+
+  var viewModel: LaunchViewModel!
+  let service = LaunchService()
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    
   }
 
 
