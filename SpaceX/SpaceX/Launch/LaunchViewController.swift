@@ -19,7 +19,9 @@ class LaunchViewController: UIViewController {
 }
 
 extension LaunchViewController: LaunchPresenterProtocol {
+  func reloadData() {
 
+  }
 }
 
 

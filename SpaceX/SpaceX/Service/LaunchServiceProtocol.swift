@@ -10,7 +10,5 @@ import Foundation
 
 protocol LaunchServiceProtocol {
 
-  func fetchAllLaunches()
-  
-
+  func fetchAllLaunches(completion: @escaping ([Launch]?) -> ())
 }

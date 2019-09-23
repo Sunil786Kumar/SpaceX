@@ -15,22 +15,44 @@ enum RequestType {
 }
 
 class LaunchService: LaunchServiceProtocol {
-  func fetchAllLaunches() {
+  func fetchAllLaunches(completion: @escaping ([Launch]?) -> ()) {
     let url = URL(string: "https://api.spacexdata.com/v3/launches")!
-
     let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
       guard let dataResponse = data, error == nil else {
-          print(error?.localizedDescription ?? "Response Error")
-          return
+        print(error?.localizedDescription ?? "Response Error")
+        completion(nil)
+        return
       }
       do{
         let decoder = JSONDecoder()
         let model = try decoder.decode([Launch].self, from: dataResponse)
-        print(model)
+        completion(model)
       } catch let parsingError {
         print("Error", parsingError)
       }
     }
     task.resume()
   }
+
+
+  
+
+//  func fetchAllLaunches(completion: ([Launch]?)) {
+//    let url = URL(string: "https://api.spacexdata.com/v3/launches")!
+//
+//    let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+//      guard let dataResponse = data, error == nil else {
+//          print(error?.localizedDescription ?? "Response Error")
+//          return
+//      }
+//      do{
+//        let decoder = JSONDecoder()
+//        let model = try decoder.decode([Launch].self, from: dataResponse)
+//        print(model)
+//      } catch let parsingError {
+//        print("Error", parsingError)
+//      }
+//    }
+//    task.resume()
+//  }
 }
