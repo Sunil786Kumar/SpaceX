@@ -15,7 +15,7 @@ enum SortType {
 }
 protocol LaunchPresenterProtocol {
   func reloadData()
-  func navigate(withDetails rocket: RocketDetails?, launch: Launch?)
+  func displayDetails()
 }
 
 class LaunchViewModel {
@@ -69,7 +69,7 @@ class LaunchViewModel {
     launchDetails(for: launch)
     rocketDetails(withId: launch.rocket.id)
     dispatchGroup.notify(queue: .main) {
-      self.presenter.navigate(withDetails: self.rocket, launch: self.launch)
+      self.presenter.displayDetails()
     }
   }
 

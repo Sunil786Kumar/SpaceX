@@ -50,21 +50,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1an-Il-vj3">
-                                <rect key="frame" x="42" y="115" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wikipedia" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGh-kN-HOS">
+                                <rect key="frame" x="20" y="172" width="382" height="77"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mission Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1an-Il-vj3">
+                                <rect key="frame" x="20" y="114" width="374" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="mXI-Ca-1XO"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fGh-kN-HOS" firstAttribute="top" secondItem="1an-Il-vj3" secondAttribute="bottom" constant="37" id="8IZ-vP-I3Z"/>
+                            <constraint firstItem="T6u-J2-GOc" firstAttribute="bottom" secondItem="fGh-kN-HOS" secondAttribute="bottom" constant="487" id="NlM-4w-j5S"/>
+                            <constraint firstItem="fGh-kN-HOS" firstAttribute="leading" secondItem="T6u-J2-GOc" secondAttribute="leading" constant="20" id="Zbg-47-xIc"/>
+                            <constraint firstItem="T6u-J2-GOc" firstAttribute="trailing" secondItem="1an-Il-vj3" secondAttribute="trailing" constant="20" id="clu-Tu-892"/>
+                            <constraint firstItem="T6u-J2-GOc" firstAttribute="trailing" secondItem="fGh-kN-HOS" secondAttribute="trailing" constant="12" id="lMI-PZ-tMz"/>
+                            <constraint firstItem="1an-Il-vj3" firstAttribute="leading" secondItem="T6u-J2-GOc" secondAttribute="leading" constant="20" id="nYB-sP-CcX"/>
+                            <constraint firstItem="1an-Il-vj3" firstAttribute="top" secondItem="T6u-J2-GOc" secondAttribute="top" constant="50" id="zzM-g4-FFG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="T6u-J2-GOc"/>
                     </view>
+                    <connections>
+                        <outlet property="missionNameLabel" destination="1an-Il-vj3" id="jqa-Wm-Tzq"/>
+                        <outlet property="wikipediaLabel" destination="fGh-kN-HOS" id="IjO-Na-QkU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZW-z9-g2s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1783" y="25"/>
+            <point key="canvasLocation" x="1782.608695652174" y="24.456521739130437"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nsZ-2g-Cqk">

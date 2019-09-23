@@ -10,21 +10,18 @@ import UIKit
 
 class LaunchDetailsViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  @IBOutlet weak var missionNameLabel: UILabel!
+  @IBOutlet weak var wikipediaLabel: UILabel!
 
-        // Do any additional setup after loading the view.
-    }
-    
+  var viewModel: LaunchDetailsViewModel!
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    configureView()
+  }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  func configureView() {
+    missionNameLabel.text = viewModel.missionName
+    wikipediaLabel.text = viewModel.wikipediaURL
+  }
 
 }

@@ -32,10 +32,11 @@ class LaunchViewController: UIViewController {
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     guard segue.identifier == viewModel.detailsSegue,
-      let vc = segue.destination as? LaunchDetailsViewController else {
+      let vc = segue.destination as? LaunchDetailsViewController,
+      let rocket = viewModel.rocket, let launch = viewModel.launch else {
         return
-      print("button pressed")
     }
+    vc.viewModel = LaunchDetailsViewModel(withDetails: rocket, launch: launch)
   }
 
   func configureNavigationBar() {
@@ -86,7 +87,7 @@ extension LaunchViewController: UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "LaunchTableViewCell", for: indexPath) as? LaunchTableViewCell,
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: viewModel.cellName, for: indexPath) as? LaunchTableViewCell,
       let model = viewModel.modelForRowAtIndex(index: indexPath.row) else {
       return UITableViewCell()
     }
@@ -96,7 +97,7 @@ extension LaunchViewController: UITableViewDataSource {
 }
 
 extension LaunchViewController: LaunchPresenterProtocol {
-  func navigate(withDetails rocket: RocketDetails?, launch: Launch?) {
+  func displayDetails() {
     performSegue(withIdentifier: viewModel.detailsSegue, sender: self)
   }
 
